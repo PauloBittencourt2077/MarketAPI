@@ -1,0 +1,28 @@
+### list products
+GET http://localhost:3000/products
+
+### get product
+GET http://localhost:3000/products/market_AJVgCarxe3hruT0kUrE0e
+
+### create product
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "Panela Inox",
+    "category": "utensílios domésticos",
+    "description": "produto simples",
+    "price": 253,
+    "quantity": 7
+}
+
+### update product
+PATCH http://localhost:3000/products/market_AJVgCarxe3hruT0kUrE0e
+Content-Type: application/json
+
+{
+    "quantity": 34
+}
+
+### delete product
+DELETE http://localhost:3000/products/market_nnntoB_Y3q4HvHMuE23Yn
