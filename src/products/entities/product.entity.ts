@@ -16,6 +16,12 @@ export class Product {
   @Column()
   description: string;
 
+  @Column()
+  quantity: number
+
+  @Column()
+  price: number
+
   @BeforeInsert()
   generateId() {
     this.id = `market_${nanoid()}`;

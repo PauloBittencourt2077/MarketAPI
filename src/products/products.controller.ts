@@ -1,3 +1,4 @@
+
 import {
   Controller,
   Get,
@@ -52,5 +53,18 @@ export class ProductsController {
   async remove(@Param('id') id: string) {
     const Product = await this.ProductsService.remove(id);
     if (!Product) throw new NotFoundException();
+  }
+
+  @Patch(':id')
+  async updateQuantity(
+    @Param('id') id: string,
+    @Body() updateProductDto: UpdateProductDto,
+  ) {
+    const Product = await this.ProductsService.update(
+      id,
+      updateProductDto,
+    );
+    if (!Product) throw new NotFoundException();
+    return Product;
   }
 }
