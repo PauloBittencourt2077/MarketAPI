@@ -52,12 +52,6 @@ $ git clone https://github.com/PauloBittencourt2077/MarketAPI
 ```
 
 ```bash
-Criando um banco de dados Postgres com Docker
-$ docker run -e POSTGRES_USER=paulo -e POSTGRES_PASSWORD=123 -p 5432:5432 -d postgres:latest
-
-```
-
-```bash
 Execute o comando na raiz do projeto
 $ docker-compose up --build
 ```
