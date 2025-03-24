@@ -8,7 +8,7 @@ import {
   Param,
   Delete,
   HttpCode,
-  NotFoundException,
+  NotFoundException
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -16,7 +16,9 @@ import { UpdateProductDto } from './dto/update-product.dto';
 
 @Controller('Products')
 export class ProductsController {
-  constructor(private readonly ProductsService: ProductsService) {}
+  constructor(private readonly ProductsService: ProductsService,
+
+  ) { }
 
   @Post()
   create(@Body() createProductDto: CreateProductDto) {
@@ -30,9 +32,9 @@ export class ProductsController {
 
   @Get(':id')
   async findOne(@Param('id') id: string) {
-    const Product = await this.ProductsService.findOne(id);
-    if (!Product) throw new NotFoundException();
-    return Product;
+    const product = await this.ProductsService.findOne(id);
+    if (!product) throw new NotFoundException();
+    return product;
   }
 
   @Patch(':id')
@@ -40,19 +42,19 @@ export class ProductsController {
     @Param('id') id: string,
     @Body() updateProductDto: UpdateProductDto,
   ) {
-    const Product = await this.ProductsService.update(
+    const product = await this.ProductsService.update(
       id,
       updateProductDto,
     );
-    if (!Product) throw new NotFoundException();
-    return Product;
+    if (!product) throw new NotFoundException();
+    return product;
   }
 
   @Delete(':id')
   @HttpCode(204)
   async remove(@Param('id') id: string) {
-    const Product = await this.ProductsService.remove(id);
-    if (!Product) throw new NotFoundException();
+    const product = await this.ProductsService.remove(id);
+    if (!product) throw new NotFoundException();
   }
 
   @Patch(':id')
@@ -60,11 +62,11 @@ export class ProductsController {
     @Param('id') id: string,
     @Body() updateProductDto: UpdateProductDto,
   ) {
-    const Product = await this.ProductsService.update(
+    const product = await this.ProductsService.update(
       id,
       updateProductDto,
     );
-    if (!Product) throw new NotFoundException();
-    return Product;
+    if (!product) throw new NotFoundException();
+    return product;
   }
 }

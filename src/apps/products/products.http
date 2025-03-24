@@ -5,20 +5,15 @@ GET http://localhost:3000/products
 GET http://localhost:3000/products/market_AJVgCarxe3hruT0kUrE0e
 
 ### create product
-POST http://localhost:3000/orders
+POST http://localhost:3000/products
 Content-Type: application/json
 
 {
-   "products": [{
-    "id": "market_U0v-5rhtnBNHbbh_G-gQI",
-    "name": "Panela Inox",
-    "category": "utensílios domésticos",
-    "description": "produto simples",
-    "quantity": 4,
-    "price": 253
-  }],
-    "total_orders": 2,
-    "status": "Concluído"
+    "name": "sabonete Macio",
+    "category": "limpeza",
+    "description": "sabonete de flores",
+    "price": 3.5,
+    "quantity": "true"
 }
 
 ### update product

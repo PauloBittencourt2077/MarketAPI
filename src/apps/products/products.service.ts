@@ -2,14 +2,14 @@ import { BadRequestException, Injectable, NotFoundException } from '@nestjs/comm
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Repository } from 'typeorm';
-import { Product } from './entities/product.entity';
+import { ProductEntity } from './entities/product.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class ProductsService {
   constructor(
-    @InjectRepository(Product)
-    private readonly repository: Repository<Product>,
+    @InjectRepository(ProductEntity)
+    private readonly repository: Repository<ProductEntity>,
   ) { }
 
   create(dto: CreateProductDto) {
@@ -42,7 +42,6 @@ export class ProductsService {
 
     const product = await this.repository.findOneBy({ id });
     if (!product) return null;
-    console.log(dto)
 
     if (dto !== undefined && dto !== null) {
       if (dto > product.quantity) {
@@ -50,7 +49,6 @@ export class ProductsService {
       }
       product.quantity = product.quantity - dto;
     } else {
-      // Adicione esta verificação para garantir que a quantidade seja fornecida
       if (dto === undefined || dto === null) {
         throw new BadRequestException('Quantidade não fornecida');
       }

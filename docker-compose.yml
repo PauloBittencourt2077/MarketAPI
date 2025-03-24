@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .              # Usa o Dockerfile na raiz
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'          # Mapeia a porta 3000 do container para o host
+    volumes:
+      - .:/app               # Monta o diretório local no container
+      - /app/node_modules    # Evita sobrescrever node_modules
+    environment:
+      - NODE_ENV=dev  # Define o ambiente (opcional)
+    env_file:
+      - .env
+    command: npm run start:dev # Comando para iniciar (sobrescreve o CMD do Dockerfile, se necessário)

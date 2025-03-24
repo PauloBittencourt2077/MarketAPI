@@ -1,16 +1,16 @@
 import { BeforeInsert, Column, Entity, JoinTable, ManyToMany, PrimaryColumn } from 'typeorm';
 
 import { nanoid } from 'nanoid';
-import { Product } from 'src/products/entities/product.entity';
+import { ProductEntity } from '../../products/entities/product.entity';
 
 @Entity('orders')
-export class Order {
+export class OrderEntity {
   @PrimaryColumn()
   id: string;
 
-  @ManyToMany(() => Product)
+  @ManyToMany(() => ProductEntity)
   @JoinTable()
-  products: Product[];
+  products: ProductEntity[];
 
   @Column()
   total_orders: number;
