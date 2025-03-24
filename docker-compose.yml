@@ -1,17 +1,33 @@
-version: '3.8'
-
 services:
   app:
     build:
-      context: .              # Usa o Dockerfile na raiz
+      context: .
       dockerfile: Dockerfile
     ports:
-      - '3000:3000'          # Mapeia a porta 3000 do container para o host
-    volumes:
-      - .:/app               # Monta o diretório local no container
-      - /app/node_modules    # Evita sobrescrever node_modules
+      - "3000:3000"
     environment:
-      - NODE_ENV=dev  # Define o ambiente (opcional)
-    env_file:
-      - .env
-    command: npm run start:dev # Comando para iniciar (sobrescreve o CMD do Dockerfile, se necessário)
+      - NODE_ENV=development
+      - DB_HOST=db              
+      - DB_PORT=5432            
+      - DB_USERNAME=paulo       
+      - DB_PASSWORD=123         
+      - DB_DATABASE=postgres    
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=paulo     # Deve corresponder a DB_USERNAME
+      - POSTGRES_PASSWORD=123   # Deve corresponder a DB_PASSWORD
+      - POSTGRES_DB=postgres    # Deve corresponder a DB_DATABASE
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

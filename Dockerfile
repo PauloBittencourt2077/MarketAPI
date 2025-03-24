@@ -1,6 +1,6 @@
-FROM node:18-alpine
+FROM node:latest
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 COPY package*.json ./
 
@@ -12,4 +12,6 @@ RUN npm run build
 
 EXPOSE 3000
 
-CMD [ "npm", "run", "start:dev" ]
+RUN npm install wait-on
+
+CMD ["sh", "-c", "npx wait-on tcp:db:5432 && npm run start:dev"]
