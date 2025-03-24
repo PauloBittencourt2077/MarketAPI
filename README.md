@@ -64,10 +64,17 @@ $ docker-compose up --build
 
 Link da Documentação no Postman : https://www.postman.com/paulobittencourtdev/workspace/marketapi
 
-Para começar a usar essa API, é preciso inicialmente criar um usuário, link da documentação de Users : https://documenter.getpostman.com/view/15252156/2sAYkHoyXu 
-Ao criar esse usuário, é preciso gerar um token para acessar as outras rotas, link da documentação de Login : https://documenter.getpostman.com/view/15252156/2sAYkHoyPD
-Após isso é possível listar produtos, editar, deletar ou listar um produto, link da documentação dos Produtcs : https://documenter.getpostman.com/view/15252156/2sAYkHnHfv
-Posteriormente é possível criar pedidos e editar pedidos, link da documentação Orders : https://documenter.getpostman.com/view/15252156/2sAYkHoyTV
+Para começar a usar essa API, é preciso inicialmente criar um usuário,
+link da documentação de Users : https://documenter.getpostman.com/view/15252156/2sAYkHoyXu
+
+Ao criar esse usuário, é preciso gerar um token para acessar as outras rotas,
+link da documentação de Login : https://documenter.getpostman.com/view/15252156/2sAYkHoyPD
+
+Após isso é possível listar produtos, editar, deletar ou listar um produto,
+link da documentação dos Produtcs : https://documenter.getpostman.com/view/15252156/2sAYkHnHfv
+
+Posteriormente é possível criar pedidos e editar pedidos,
+link da documentação Orders : https://documenter.getpostman.com/view/15252156/2sAYkHoyTV
 
 Recomendo acessar o link https://www.postman.com/paulobittencourtdev/workspace/marketapi, no qual é possível usar todas requisições no postman.
 
