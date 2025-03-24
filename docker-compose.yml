@@ -23,9 +23,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_USER=paulo     # Deve corresponder a DB_USERNAME
-      - POSTGRES_PASSWORD=123   # Deve corresponder a DB_PASSWORD
-      - POSTGRES_DB=postgres    # Deve corresponder a DB_DATABASE
+      - POSTGRES_USER=paulo     
+      - POSTGRES_PASSWORD=123   
+      - POSTGRES_DB=postgres    
     volumes:
       - pgdata:/var/lib/postgresql/data
 
